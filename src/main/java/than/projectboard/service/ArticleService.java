@@ -6,11 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import than.projectboard.domain.type.SearchType;
 import than.projectboard.dto.ArticleDto;
-import than.projectboard.dto.ArticleUpdateDto;
+import than.projectboard.dto.ArticleWithCommentsDto;
 import than.projectboard.repository.ArticleRepository;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 @RequiredArgsConstructor
 @Transactional
@@ -20,21 +19,22 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     @Transactional(readOnly = true)
-    public Page<ArticleDto> searchArticles(SearchType title, String search_keyword) {
+    public Page<ArticleDto> searchArticles(SearchType searchType, String searchKeyword, Pageable pageable) {
         return Page.empty();
     }
 
     @Transactional(readOnly = true)
-    public ArticleDto searchArticle(long l) {
+    public ArticleWithCommentsDto getArticle(Long articleId) {
         return null;
     }
 
     public void saveArticle(ArticleDto dto) {
     }
 
-    public void updateArticle(long articleId, ArticleUpdateDto of) {
+    public void updateArticle(ArticleDto dto) {
     }
 
     public void deleteArticle(long articleId) {
     }
+
 }
