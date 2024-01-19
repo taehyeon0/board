@@ -12,10 +12,12 @@ import than.projectboard.domain.Article;
 import than.projectboard.domain.QArticle;
 
 import org.springframework.data.domain.Pageable;
+import than.projectboard.repository.querydsl.ArticleRepositoryCustom;
 
 @RepositoryRestResource
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
+        ArticleRepositoryCustom,
         QuerydslPredicateExecutor<Article>,
         QuerydslBinderCustomizer<QArticle> {
 
